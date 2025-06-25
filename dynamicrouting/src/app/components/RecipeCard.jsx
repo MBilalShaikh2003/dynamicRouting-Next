@@ -8,7 +8,7 @@ export default function RecipeCard({ recipe }) {
       <Image src={recipe.image} alt={recipe.title} width={320} height={200} className="rounded" />
       <h2 className="text-xl font-bold mt-2">{recipe.title}</h2>
       <p>{recipe.description}</p>
-      <Link href={`/recipes/${recipe.slug}`} className="text-blue-500 underline mt-2 inline-block">
+      <Link href={`/Recipes/${recipe.slug}`} className="text-blue-500 underline mt-2 inline-block">
         View Recipe
       </Link>
     </div>
