@@ -28,8 +28,8 @@ export default function RecipeDetail() {
       <Image
         src={recipe.image}
         alt={recipe.title}
-        width={600}
-        height={400}
+        width={400}
+        height={200}
         className="rounded mb-4"
       />
       <p className="text-lg">{recipe.description}</p>
