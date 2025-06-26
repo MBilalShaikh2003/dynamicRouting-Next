@@ -1,17 +1,26 @@
+'use client'; // 👈 Required to use useParams in App Router
+
+import { useParams } from 'next/navigation';
 import recipes from '@/app/data/recipe';
-import { notFound } from 'next/navigation';
 import Image from 'next/image';
+import { useEffect } from 'react';
 
-export async function generateStaticParams() {
-  return recipes.map((recipe) => ({
-    slug: recipe.slug,
-  }));
-}
-
-export default function RecipeDetail({ params }) {
+export default function RecipeDetail() {
+  const params = useParams(); // 👈 gets params from the URL
+  console.log(params)
   const recipe = recipes.find((r) => r.slug === params.slug);
 
-  if (!recipe) return notFound();
+  useEffect(() => {
+    console.log('URL params:', params); // 👈 logs in browser dev tools
+  }, [params]);
+
+  if (!recipe) {
+    return (
+      <div className="p-8 text-red-500 text-xl">
+        Recipe not found! ❌
+      </div>
+    );
+  }
 
   return (
     <div className="p-8">
